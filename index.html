@@ -73,6 +73,56 @@
                 <p class="help-text">Entrez le pourcentage de bonus du challenge (ex: 25 pour +25%)</p>
             </div>
 
+            <!-- Coffre Section -->
+            <div class="form-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="chestCheckbox" class="chest-checkbox">
+                    <label for="chestCheckbox" class="chest-label">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="8" width="18" height="12" rx="2"></rect>
+                            <path d="M3 8V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"></path>
+                            <path d="M12 8v4"></path>
+                        </svg>
+                        Calculer aussi le drop du Coffre
+                    </label>
+                </div>
+            </div>
+
+            <!-- Chest Details (hidden by default) -->
+            <div id="chestDetailsSection" class="chest-details-section" style="display: none;">
+                <h3 class="chest-title">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="8" width="18" height="12" rx="2"></rect>
+                        <path d="M3 8V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"></path>
+                        <path d="M12 8v4"></path>
+                    </svg>
+                    Paramètres du Coffre
+                </h3>
+                
+                <div class="chest-grid">
+                    <div class="form-group">
+                        <label class="form-label">Niveau du lanceur</label>
+                        <input type="number" id="launcherLevelInput" placeholder="Ex: 200" class="form-input chest-input" min="1" max="200">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Prospection acquise (combat)</label>
+                        <input type="number" id="combatProspectionInput" placeholder="Ex: 50" class="form-input chest-input" min="0">
+                    </div>
+                </div>
+                
+                <div class="chest-info">
+                    <p class="info-text">
+                        <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        Formule coffre: PP = 100 (base) + Niveau + PP acquise
+                    </p>
+                </div>
+            </div>
+
             <!-- Buttons -->
             <div class="button-row">
                 <button id="calculateBtn" class="btn-primary">Calculer</button>
@@ -100,6 +150,32 @@
                     <div class="result-card">
                         <p class="result-label">Taux de drop final</p>
                         <p class="result-value large" id="finalRate">0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chest Results (hidden by default) -->
+            <div id="chestResultsSection" class="chest-results-section" style="display: none;">
+                <h3 class="results-title chest-results-title">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="8" width="18" height="12" rx="2"></rect>
+                        <path d="M3 8V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"></path>
+                        <path d="M12 8v4"></path>
+                    </svg>
+                    Résultats du Coffre
+                </h3>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <p class="result-label">Prospection du coffre</p>
+                        <p class="result-value chest-pp" id="chestProspection">0</p>
+                    </div>
+                    <div class="result-card">
+                        <p class="result-label">Taux personnel coffre</p>
+                        <p class="result-value" id="chestPersonalRate">0%</p>
+                    </div>
+                    <div class="result-card">
+                        <p class="result-label">Taux de drop final coffre</p>
+                        <p class="result-value large" id="chestFinalRate">0%</p>
                     </div>
                 </div>
             </div>
